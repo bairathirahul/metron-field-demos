@@ -1,5 +1,10 @@
 #!/bin/sh
 
+export METRON_HOST=node1
+export ES_URL=http://node1:9200
+export REST_URL=http://${METRON_HOST}:8082
+
+
 # setup metron bits
 echo "Setting up Parser"
 curl -X POST -u admin:admin -d@parser.json -H 'Content-Type: application/json' $REST_URL/api/v1/sensor/parser/config/auth
